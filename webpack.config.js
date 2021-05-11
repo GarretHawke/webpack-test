@@ -34,13 +34,19 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
-          },
+          MiniCssExtractPlugin.loader,
           'css-loader'
-        ]
+        ],
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use:
+        [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ],
+      }
     ],
   },
   resolve: {
@@ -70,5 +76,5 @@ module.exports = {
     open: true,
     hot: true,
     port: 9000,
-  }
+  },
 };
